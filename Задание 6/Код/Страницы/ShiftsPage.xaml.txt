@@ -1,0 +1,33 @@
+      d:DesignHeight="620" d:DesignWidth="1260"
+      Title="Страница со сменами"
+      Loaded="Page_Loaded">
+
+Сетка Grid
+Строка высотой 50
+Строка высотой 10
+Строка высотой 1*
+
+Кнопка с именем AddShiftBtn, горизонтал. выравн-е слева, надпись "Сформировать", 
+вспл. подсказка "Формирование новой смены"
+
+        <ListView Name="ShiftsLv"
+              Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Имя"
+                                DisplayMemberBinding="{Binding Employee.Name}">
+
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Дата смены"
+                                DisplayMemberBinding="{Binding Date, StringFormat={}{0:dd.MM.yyy}}">
+
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Кол-во часов"
+                                DisplayMemberBinding="{Binding HoursAmount, StringFormat={}{0} ч.}">
+
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>

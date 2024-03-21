@@ -1,0 +1,49 @@
+      d:DesignHeight="620" d:DesignWidth="1260"
+      Title="Страница пользователей"
+      Loaded="Page_Loaded"
+
+
+Сетка Grid
+
+Строка высотой 50
+Строка высотой 10
+Строка высотой 1*
+
+Кнопка с именем AddEmployeeBtn, выравнивание по горизонтали слева, надпись "Добавить", 
+всплывающая подсказка для кнопки ="Добавление нового сотрудника в систему"
+
+
+ <ListView Name="EmployeesLv"
+                  Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Имя"
+                                    DisplayMemberBinding="{Binding Name}">
+                        
+                    </GridViewColumn>
+                    
+                    <GridViewColumn Header="Дата рождения"
+                                    DisplayMemberBinding="{Binding DateOfBirth, StringFormat={}{0:dd.MM.yyy}}">
+                        
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Должность"
+                                    DisplayMemberBinding="{Binding Role.Name}">
+                        
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Статус работника">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox Name="EmployeeStatusCmb"
+                                          Width="140"
+                                          DisplayMemberPath="Name"
+                                          SelectedValuePath="Id"
+                                          Initialized="EmployeeStatusCmb_Initialized"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
